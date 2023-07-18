@@ -8,10 +8,24 @@
                 <div class="col-sm-9">
                     <h3> Crud Operations</h3>
                 </div>
+
                 <div class="col-sm-3">
                     <a class="btn btn-primary" href="{{ route('data.create') }}"> Add Details</a>
                 </div>
+                
             </div>
+            <div class="row margin-tb">
+            @auth
+                <p>Welcome <b>{{ Auth::user()->name }}</b></p>
+                <a class="btn btn-primary" href="{{ route('password') }}">Change Password</a>
+                <a class="btn btn-danger" href="{{ route('logout') }}">Logout</a>
+                @endauth
+
+                @guest
+                <a class="btn btn-primary" href="{{ route('login') }}">Login</a>
+                <a class="btn btn-info" href="{{ route('register') }}">Register</a>
+                @endguest
+            </div> 
         </div>
         </div>
 
